@@ -20,13 +20,13 @@
         var blue = Math.floor(Math.random() * 255)
 
         this.div.style.backgroundColor = 'rgb(' + [red, green, blue].join(',') + ')'; // and set the background color to that random RGB triplet
-
+        this.div.style.opacity = .6 + Math.random();
         document.body.appendChild(this.div); // and then stick the div we've created in our page;
     };
 
 
     var myCircles = []; // make an empty array to hold all my Circles
-    for (var i = 0; i < 50; i++) { // make ten of them
+    for (var i = 0; i < 100; i++) { // make ten of them
         myCircles.push(new Circle(Math.random() * 100)); // with random radii from 0 -> 100, sticking them into the myCircles array
     }
     </script>
