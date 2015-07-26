@@ -1,0 +1,61 @@
+<html>
+<head>
+<style>
+p3 {
+    color:rgb(0,50,255);
+    font-family:helvetica;
+    font-size:200%;
+    z-index: 1;
+    position: absolute;
+    left: 122px;
+    top: 129px;
+}
+
+p  {
+    color:rgb(255,170,0);
+    font-family:helvetica;
+    font-size:200%;
+    z-index: 2;
+    position: absolute;
+    left: 120px;
+    top: 95px;
+}
+</style>
+<!-- <p><b>refresh</b> often</p> 
+<p3><b>refresh</b> often</p3> -->
+</head>
+<body>
+    <script>
+    var Circle = function(radius) { // define a new function to make a circle of a given radius
+        this.radius = radius; // store the radius we're given
+        this.div = document.createElement('div'); // create the div that we're going to use to display the circle
+
+        this.div.style.width = 2 * radius + 'px'; // set its width 
+        this.div.style.height = 2 * radius + 'px'; // and height to twice our radius        
+        this.div.style.borderRadius = radius + 'px'; // set its border-radius to our radius
+
+        this.div.style.position = 'absolute'; // position it absolutely
+        this.div.style.left = Math.floor(Math.random() * 100) + "%"; // so that we can choose a random % left
+        this.div.style.top = Math.floor(Math.random() * 100) + "%"; // and top to place it
+
+        // choose a random number 0 -> 255 for red, green, and blue values
+        var red = Math.floor(Math.random() * 255)
+        var green = Math.floor(Math.random() * 255)
+        var blue = Math.floor(Math.random() * 255)
+
+        this.div.style.backgroundColor = 'rgb(' + [red, green, blue].join(',') + ')'; 
+        // and set the background color to that random RGB triplet
+        this.div.style.opacity = .6 + Math.random();
+
+        document.body.appendChild(this.div); // and then stick the div we've created in our page;
+    };
+
+
+    var myCircles = []; // make an empty array to hold all my Circles
+    for (var i = 0; i < 100; i++) { // make 100 of them
+        myCircles.push(new Circle(Math.random() * 100)); // with random radii from 0 -> 100, sticking them into the myCircles array
+    }
+    </script>
+</body>
+
+</html>
